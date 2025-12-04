@@ -1,26 +1,21 @@
-name: Run Bomb Bot
+from misskey import Misskey
+from datetime import datetime
 
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: "0 * * * *"  # 毎時0分に起動
+TOKEN = "F7l2B04qPnBI1dxFycZU4MvWRIIoNqEI"
+INSTANCE_URL = "https://misskey.stream"
+mi = Misskey(INSTANCE_URL, i=TOKEN)
 
-jobs:
-  run-bot:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+def post_message():
+    now = datetime.now()
+    hour = now.hour
+    if hour == 0:
+        text = "起爆"
+    else:
+        text = "爆破" * hour
+    mi.notes_create(text=text)
+    print(f"{hour}時に投稿: {text}")
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
-
-      - name: Install dependencies
-        run: |
-          pip install misskey.py
-          pip install apscheduler
-
+# 実行
+post_message()
       - name: Run bot
         run: python bot.py
