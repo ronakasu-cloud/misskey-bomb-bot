@@ -1,8 +1,12 @@
 from misskey import Misskey
 from datetime import datetime
 
-TOKEN = "F7l2B04qPnBI1dxFycZU4MvWRIIoNqEI"
-INSTANCE_URL = "https://misskey.stream"
+# ======================
+# Misskey設定
+TOKEN = "F7l2B04qPnBI1dxFycZU4MvWRIIoNqEI"  # 取得済みトークン
+INSTANCE_URL = "https://misskey.stream"       # インスタンスURL
+# ======================
+
 mi = Misskey(INSTANCE_URL, i=TOKEN)
 
 def post_message():
@@ -15,7 +19,5 @@ def post_message():
     mi.notes_create(text=text)
     print(f"{hour}時に投稿: {text}")
 
-# 実行
+# GitHub Actionsで呼ばれるので、スケジューラは不要
 post_message()
-      - name: Run bot
-        run: python bot.py
