@@ -3,7 +3,31 @@ name: Run Bomb Bot
 on:
   workflow_dispatch:  # 手動実行
   schedule:
-    - cron: "0 * * * *"  # 毎時0分に自動実行
+    # 日本時間の毎時0分に実行するようUTCで設定
+    - cron: "0 15 * * *"  # JST 0時
+    - cron: "0 16 * * *"  # JST 1時
+    - cron: "0 17 * * *"  # JST 2時
+    - cron: "0 18 * * *"  # JST 3時
+    - cron: "0 19 * * *"  # JST 4時
+    - cron: "0 20 * * *"  # JST 5時
+    - cron: "0 21 * * *"  # JST 6時
+    - cron: "0 22 * * *"  # JST 7時
+    - cron: "0 23 * * *"  # JST 8時
+    - cron: "0 0 * * *"   # JST 9時
+    - cron: "0 1 * * *"   # JST 10時
+    - cron: "0 2 * * *"   # JST 11時
+    - cron: "0 3 * * *"   # JST 12時
+    - cron: "0 4 * * *"   # JST 13時
+    - cron: "0 5 * * *"   # JST 14時
+    - cron: "0 6 * * *"   # JST 15時
+    - cron: "0 7 * * *"   # JST 16時
+    - cron: "0 8 * * *"   # JST 17時
+    - cron: "0 9 * * *"   # JST 18時
+    - cron: "0 10 * * *"  # JST 19時
+    - cron: "0 11 * * *"  # JST 20時
+    - cron: "0 12 * * *"  # JST 21時
+    - cron: "0 13 * * *"  # JST 22時
+    - cron: "0 14 * * *"  # JST 23時
 
 jobs:
   run-bot:
