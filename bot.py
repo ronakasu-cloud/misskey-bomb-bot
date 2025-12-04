@@ -4,11 +4,11 @@ import os
 # GitHub Actions の秘密変数からトークン取得
 token = os.getenv("MISSKEY_TOKEN")
 
-# あなたのインスタンスURL
-mi = Misskey("https://miskey.stream")
+# インスタンスURL（正しい綴り）
+mi = Misskey("https://misskey.stream")
 
 # ログイン
 mi.login(token=token)
 
-# 投稿内容（爆破）
+# 投稿内容
 mi.notes_create(text="爆破")
