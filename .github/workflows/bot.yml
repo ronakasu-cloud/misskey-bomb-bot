@@ -1,0 +1,24 @@
+name: Misskey Bot
+
+on:
+  schedule:
+    - cron: "0 * * * *"  # 毎時間0分
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install misskey
+
+      - name: Run bot
+        env:
+          MISSKEY_TOKEN: ${{ secrets.MISSKEY_TOKEN }}
+        run: python bot.py
