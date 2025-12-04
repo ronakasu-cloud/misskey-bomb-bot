@@ -3,7 +3,7 @@ name: Misskey Bot
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 * * * *"  # 毎時間0分
+    - cron: "0 * * * *"
 
 jobs:
   run-bot:
@@ -17,7 +17,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
-        run: pip install misskey-api
+        run: pip install Misskey.py
 
       - name: Run bot
         env:
