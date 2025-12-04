@@ -1,6 +1,7 @@
 name: Misskey Bot
 
 on:
+  workflow_dispatch:    # ← 手動実行できるようになる
   schedule:
     - cron: "0 * * * *"  # 毎時間0分
 
