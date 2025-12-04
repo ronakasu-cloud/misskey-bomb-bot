@@ -3,7 +3,7 @@ name: Run Bomb Bot
 on:
   workflow_dispatch:  # 手動実行
   schedule:
-    # 日本時間の毎時0分に実行するようUTCで設定
+    # JSTの毎時0分に投稿するようにUTCに変換
     - cron: "0 15 * * *"  # JST 0時
     - cron: "0 16 * * *"  # JST 1時
     - cron: "0 17 * * *"  # JST 2時
